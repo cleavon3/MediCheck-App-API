@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 369e8ce0160255d438b75c1fc3a65773cce11eae
 services:
   app:
     build:
@@ -10,6 +15,7 @@ services:
     volumes:
       - ./app:/app
     command: >
+<<<<<<< HEAD
       sh -c "python manage.py wait_for_db &&
              python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
@@ -32,3 +38,6 @@ services:
       
 volumes:
   dev_db_data:
+=======
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+>>>>>>> 369e8ce0160255d438b75c1fc3a65773cce11eae

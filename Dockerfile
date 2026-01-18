@@ -9,6 +9,7 @@ COPY ./app /app
 WORKDIR /app
 EXPOSE 8000 
 
+<<<<<<< HEAD
 ARG DEV=false
 
 RUN python -m venv /py && \
@@ -27,3 +28,21 @@ RUN python -m venv /py && \
 ENV PATH="/py/bin:$PATH"
 
 USER django-user
+=======
+ARG DEV=true
+RUN python -m venv /py && \
+    /py/bin/pip install --upgrade pip && \
+    /py/bin/pip install -r /tmp/requirements.txt && \
+    if [ $DEV = "true" ]; \
+        then /py/bin/pip install -r /tmp/requirements.dev.txt; \
+        fi && \
+    rm -rf /tmp && \ 
+    adduser \
+       --disabled-password\
+       --no-create-home \
+       django-user
+
+ENV PATH="/py/bin:$PATH"
+
+USER django-user
+>>>>>>> 369e8ce0160255d438b75c1fc3a65773cce11eae

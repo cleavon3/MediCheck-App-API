@@ -270,7 +270,7 @@ class PrivateDiseaseApiTests(TestCase):
         payload = {'tags': [{'name': 'Strict'}]}
         url = detail_url(disease.id)
         res = self.client.patch(url, payload, format='json')
- and 
+
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertIn(tag_strict, disease.tags.all())
         self.assertNotIn(tag_healthy, disease.tags.all())

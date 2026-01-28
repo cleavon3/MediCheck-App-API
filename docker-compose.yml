@@ -1,21 +1,17 @@
-<<<<<<< HEAD
-=======
+version: "3.9"
 
-
->>>>>>> 369e8ce0160255d438b75c1fc3a65773cce11eae
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
       args:
-        - DEV=true
+        DEV: "true"
     ports:
       - "8000:8000"
     volumes:
       - ./app:/app
     command: >
-<<<<<<< HEAD
       sh -c "python manage.py wait_for_db &&
              python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
@@ -35,9 +31,6 @@ services:
       POSTGRES_DB: devdb
       POSTGRES_USER: devuser
       POSTGRES_PASSWORD: changeme
-      
+
 volumes:
   dev_db_data:
-=======
-      sh -c "python manage.py runserver 0.0.0.0:8000"
->>>>>>> 369e8ce0160255d438b75c1fc3a65773cce11eae
